@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainings</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ecf0f1;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            margin-left: 250px; /* Adjust for the fixed navbar */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1000;
+            animation: fadeInLeft 1s ease-out;
+        }
+        .navbar .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: zoomIn 1.2s ease-in-out;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 4px;
+            transition: background-color 0.4s, transform 0.3s;
+        }
+        .navbar a i {
+            margin-right: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #34495e;
+            transform: translateX(10px);
+        }
+        .navbar a:hover i {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Trainings Section */
+        .trainings-section {
+            padding: 30px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .trainings-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .trainings-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .training-card {
+            background-color: #fff;
+            width: 260px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            animation: fadeInUp 0.6s ease-in-out;
+        }
+        .training-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+        .training-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .training-card-content {
+            padding: 20px;
+            text-align: left;
+        }
+        .training-card-content h2 {
+            font-size: 1.8em;
+            margin: 0 0 10px;
+            color: #2c3e50;
+        }
+        .training-card-content p {
+            color: #7f8c8d;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div>
+                <div class="title">Epontee</div>
+                <a href="index.html">
+                    <i class="fas fa-arrow-right"></i> Home
+                </a>
+                <a href="about.html">
+                    <i class="fas fa-arrow-right"></i> About
+                </a>
+                <a href="courses.html">
+                    <i class="fas fa-arrow-right"></i> Courses
+                </a>
+                <a href="trainings.html" class="active">
+                    <i class="fas fa-arrow-right"></i> Trainings
+                </a>
+                <a href="newbatches.html">
+                    <i class="fas fa-arrow-right"></i> New Batches
+                </a>
+                <a href="newopeninings.html">
+                    <i class="fas fa-arrow-right"></i> Job Openings
+                </a>
+            </div>
+            <div class="footer">
+                <p><i>📧 Email: </i> info@epontee.com</p>
+                <p><i>📞 Phone: </i> +1234567890</p>
+            </div>
+        </div>
+
+        <!-- Trainings Section -->
+        <section class="trainings-section">
+            <h1>Our Trainings</h1>
+            <div class="trainings-container">
+                <!-- Classroom Training Card -->
+                <div class="training-card" id="classroom-card" onclick="openModal('classroom')">
+                    <img src="classroom.jpg" alt="Classroom Training">
+                    <div class="training-card-content">
+                        <h2>Classroom Training</h2>
+                        <p>Engage in interactive and hands-on learning experiences in our state-of-the-art classrooms.</p>
+                    </div>
+                </div>
+
+                <!-- Online Training Card -->
+                <div class="training-card" id="online-card" onclick="openModal('online')">
+                    <img src="online.png" alt="Online Training">
+                    <div class="training-card-content">
+                        <h2>Online Training</h2>
+                        <p>Learn from the comfort of your home with our comprehensive online training programs.</p>
+                    </div>
+                </div>
+
+                <!-- Corporate Training Card -->
+                <div class="training-card" id="corporate-card" onclick="openModal('corporate')">
+                    <img src="corporate.jpg" alt="Corporate Training">
+                    <div class="training-card-content">
+                        <h2>Corporate Training</h2>
+                        <p>Customized training solutions tailored for businesses and organizations.</p>
+                    </div>
+                </div>
+
+                <!-- Project Training Card -->
+                <div class="training-card" id="project-card" onclick="openModal('project')">
+                    <img src="project.jpg" alt="Project Training">
+                    <div class="training-card-content">
+                        <h2>Project Training</h2>
+                        <p>Hands-on training focused on real-world projects and practical applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for showing training details -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title">Training Title</h2>
+                <p id="modal-description">Training description and details.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open modal and display training details based on the clicked card
+        function openModal(training) {
+            var title = '';
+            var description = '';
+
+            if (training === 'classroom') {
+                title = 'Classroom Training';
+                description = 'Engage in interactive and hands-on learning experiences in our state-of-the-art classrooms.';
+            } else if (training === 'online') {
+                title = 'Online Training';
+                description = 'Learn from the comfort of your home with our comprehensive online training programs.';
+            } else if (training === 'corporate') {
+                title = 'Corporate Training';
+                description = 'Customized training solutions tailored for businesses and organizations.';
+            } else if (training === 'project') {
+                title = 'Project Training';
+                description = 'Hands-on training focused on real-world projects and practical applications.';
+            }
+
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

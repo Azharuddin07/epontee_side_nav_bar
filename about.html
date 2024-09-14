@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Epontee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH2N2DVKn5qcje5f6T8F2qZXH4uFLua59AibM1OAkbx74T1woj6UZR6GItpqsKKO/Q5e5yA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+       /* General Styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    margin-left: 250px; /* Adjust for the fixed navbar */
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    animation: fadeInLeft 1s ease-out;
+}
+.navbar .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: zoomIn 1.2s ease-in-out;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 0;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.4s, transform 0.3s;
+}
+.navbar a i {
+    margin-right: 8px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: transform 0.3s, opacity 0.3s;
+}
+.navbar a:hover {
+    background-color: #34495e;
+    transform: translateX(10px);
+}
+.navbar a:hover i {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* About Section Styling */
+.about {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+.about h1 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    animation: zoomIn 1.2s ease-in-out;
+}
+.about p {
+    font-size: 1.1em;
+    color: #34495e;
+    line-height: 1.6;
+}
+.about-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    animation: slideInRight 1.5s ease-in-out;
+}
+.about-details div {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.5s ease-in-out;
+}
+.about-details h2 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+.about-team, .about-contact {
+    margin-top: 50px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+.about-team h2, .about-contact h2 {
+    font-size: 1.8em;
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+.about-team p, .about-contact p {
+    font-size: 1.1em;
+    color: #34495e;
+    margin: 10px 0;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes zoomIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+</style>
+
+</head>
+<body>
+
+    
+    <div class="container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div>
+                <div class="title">Epontee</div>
+                <a href="index.html">
+                    <i class="fas fa-arrow-right"></i> Home
+                </a>
+                <a href="about.html" class="active">
+                    <i class="fas fa-arrow-right"></i> About
+                </a>
+                <a href="courses.html">
+                    <i class="fas fa-arrow-right"></i> Courses
+                </a>
+                <a href="trainings.html">
+                    <i class="fas fa-arrow-right"></i> Trainings
+                </a>
+                <a href="newbatches.html">
+                    <i class="fas fa-arrow-right"></i> New Batches
+                </a>
+                <a href="newopeninings.html">
+                    <i class="fas fa-arrow-right"></i> Job Openings
+                </a>
+            </div>
+            <div class="footer">
+                <p><i>📧 Email: </i> info@epontee.com</p>
+                <p><i>📞 Phone: </i> +1234567890</p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <section class="about">
+                <h1>About <span class="highlight">Epontee</span></h1>
+                <p class="intro-text">
+                    Epontee is a leading edutech and corporate training institute that focuses on empowering students and professionals with the skills they need to succeed in today's competitive market.
+                </p>
+
+                <div class="about-details">
+                    <div class="about-vision">
+                        <h2>Our Vision</h2>
+                        <p>
+                            Our vision is to become the most trusted and recognized name in technology training and professional development, helping individuals transform their careers through continuous learning.
+                        </p>
+                    </div>
+
+                    <div class="about-mission">
+                        <h2>Our Mission</h2>
+                        <p>
+                            Our mission is to provide world-class education and training solutions tailored to the evolving needs of students and corporates, ensuring that they are equipped with the skills needed to succeed in the tech-driven world.
+                        </p>
+                    </div>
+
+                    <div class="about-features">
+                        <h2>Why Choose Us?</h2>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Expert trainers with industry experience</li>
+                            <li><i class="fas fa-check-circle"></i> Comprehensive and up-to-date course materials</li>
+                            <li><i class="fas fa-check-circle"></i> Flexible training programs for all learners</li>
+                            <li><i class="fas fa-check-circle"></i> Career guidance and job placement assistance</li>
+                            <li><i class="fas fa-check-circle"></i> Affordable training solutions with high ROI</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-team">
+                    <h2>Meet Our Team</h2>
+                    <p>
+                        At Epontee, we have a team of dedicated professionals who are passionate about education and technology. Our instructors and corporate trainers bring years of industry experience, ensuring that you receive the most relevant and effective training.
+                    </p>
+                </div>
+
+                <div class="about-contact">
+                    <h2>Get in Touch</h2>
+                    <p>For any inquiries or more information about our programs, please feel free to contact us at:</p>
+                    <p>Email: <strong>info@epontee.com</strong></p>
+                    <p>Phone: <strong>+1234567890</strong></p>
+                </div>
+            </section>
+        </div>
+    </div>
+<script>
+
+</script>
+</body>
+</html>
